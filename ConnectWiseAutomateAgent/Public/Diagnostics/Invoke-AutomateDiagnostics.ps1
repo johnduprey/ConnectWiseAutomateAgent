@@ -172,10 +172,12 @@ function Invoke-AutomateDiagnostics {
                     HeartbeatSent   = $LastHBSent
                     HeartbeatRecv   = $LastHBRcv
                     HeartbeatStatus = $HeartbeatStatus
+                    AgentVersion    = $AgentInfo.Version
                     ServerVersion   = $ServerVersion
                     UpdateNeeded    = $UpdateNeeded
                     UpdateText      = $UpdateText
                     ServiceInfo     = $ServiceInfo
+                    LastRun         = Get-Date
                 }
 
                 $Status | ConvertTo-Json | Out-File -FilePath $StatusFile
