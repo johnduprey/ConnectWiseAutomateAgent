@@ -117,7 +117,7 @@ function Initialize-AutomateDiagnostics {
 
         $Action = New-ScheduledTaskAction @ActionParameters
         $Principal = New-ScheduledTaskPrincipal -UserId 'NT AUTHORITY\SYSTEM' -LogonType ServiceAccount
-        $Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries DontStopOnIdleEnd
+        $Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -DontStopOnIdleEnd
         
         $RegSchTaskParameters = @{
             TaskName    = $TaskName

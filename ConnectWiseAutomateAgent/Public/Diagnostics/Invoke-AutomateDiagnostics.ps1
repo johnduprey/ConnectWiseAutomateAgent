@@ -65,8 +65,9 @@ function Invoke-AutomateDiagnostics {
                 Start-Transcript -Path $DiagnosticLog
                 Write-Host 'Starting diagnostics...'
                 
+                $Started = Get-Date
                 $Running = [PSCustomObject]@{
-                    Started = Get-Date
+                    Started = $Started
                 }
                 $Running | ConvertTo-Json | Out-File -FilePath $RunningFile
 
@@ -177,7 +178,7 @@ function Invoke-AutomateDiagnostics {
                     UpdateNeeded    = $UpdateNeeded
                     UpdateText      = $UpdateText
                     ServiceInfo     = $ServiceInfo
-                    LastRun         = Get-Date
+                    LastRun         = $Started
                 }
 
                 $Status | ConvertTo-Json | Out-File -FilePath $StatusFile
